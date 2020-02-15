@@ -13,7 +13,7 @@ autopep8 = "*"
 pytest = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"
 
 [scripts]
 server = "python ./api/routes.py"

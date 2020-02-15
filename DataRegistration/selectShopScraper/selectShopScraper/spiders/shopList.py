@@ -18,10 +18,10 @@ class ShoplistSpider(scrapy.Spider):
     for content_item in response.css('.listProduct_item.dualprice'):
       item = SelectshopscraperItem()
       item['name'] = content_item.css('div.genre.rdstr::text').extract_first()
-      item['list_price'] = content_item.css(
-          'span.rate_first.db::text').extract_first().rstrip('→')
-      item['sale_price'] = content_item.css(
-          'span.rate_end.force_color::text').extract_first().strip()
+      # item['list_price'] = content_item.css(
+      #     'span.rate_first.db::text').extract_first().rstrip('→')
+      # item['sale_price'] = content_item.css(
+      #     'span.rate_end.force_color::text').extract_first().strip()
       item['discount_price'] = re.sub(r'[(｜)]', '', content_item.css(
           'span.tax::text').extract_first()).strip()
       item['detail_url'] = content_item.css('a::attr(href)').extract_first()
